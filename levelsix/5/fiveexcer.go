@@ -29,7 +29,25 @@ func info(s shape) {
 	fmt.Println(s.area())
 }
 
+var g func()
+
 func main() {
+
+	f := func() {
+		for i := 0; i < 3; i++ {
+			fmt.Println(i)
+		}
+	}
+
+	f()
+	fmt.Printf("typ f - %T\n", f)
+
+	g = f
+	g()
+	fmt.Printf("this is g - %T\n", g)
+
+	fmt.Println("done")
+
 	circ := circle{
 		radius: 12.345,
 	}
